@@ -1,28 +1,10 @@
------------------------------------------------------------
--- Neovim settings
------------------------------------------------------------
-
------------------------------------------------------------
--- Neovim API aliases
------------------------------------------------------------
-local map = vim.api.nvim_set_keymap  -- set global keymap
-local cmd = vim.cmd     				-- execute Vim commands
-local exec = vim.api.nvim_exec 	-- execute Vimscript
-local fn = vim.fn       				-- call Vim functions
-local g = vim.g         				-- global variables
-local opt = vim.opt         		-- global/buffer/windows-scoped options
-
------------------------------------------------------------
--- No Port VIM 
------------------------------------------------------------
-vim.cmd('source ~/.config/nvim/lua/config/outdated.vim')
 
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
 g.mapleader = ' '             -- change leader to a space
 opt.swapfile = false          -- don't use swapfile
---opt.autochdir = true          -- auto change current working dir
+opt.autochdir = true          -- auto change current working dir
 opt.exrc = true
 opt.hlsearch = false          -- don't highlight search result
 opt.errorbells = false        -- don't use error bells
@@ -34,6 +16,7 @@ opt.undodir = fn.stdpath('cache')..'/nvim/undodir' -- path to undo directory
 opt.undofile = true           -- keep undofile
 opt.incsearch = true          -- use incremental search
 opt.updatetime = 50           -- neovim refresh rate (ms)
+opt.tw = 80                   -- text width
 
 -----------------------------------------------------------
 -- Neovim UI
@@ -46,7 +29,6 @@ opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.cursorline = true         -- highlight current line
 opt.scrolloff = 8             -- lines below last edited line
 opt.signcolumn = 'no'
--- opt.colorcolumn = 80
 
 -- remove status line and vertical line
 opt.fillchars = 'vert: '      -- replace vertical chars with ' '
@@ -61,9 +43,8 @@ g['&statusline'] = '%#Normal# ' -- remove uncessary extensions from staus line
 -----------------------------------------------------------
 -- POPUP UI
 -----------------------------------------------------------
---opt.wildmode = {'longest','list','full'}
---opt.wildmenu = true
---opt.wildignore = {'*.pyc', '*_build/*', '**/coverage/*', '**/node_modules/*', '**/android/*', '**/iot/*', '**/.git/*'}
+vim.o.termguicolors = true
+opt.fillchars = { eob = " "}
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -80,19 +61,3 @@ opt.expandtab = true      -- use spaces instead of tabs
 opt.shiftwidth = 4        -- shift 4 spaces when tab
 opt.tabstop = 4           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
-
--- don't auto commenting new lines
-cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
-
--- remove line length marker for selected filetypes
-cmd [[autocmd FileType python,javatext,markdown,html,xhtml,javascript setlocal cc=0]]
-
---cmd [[autocmd BufWritePre *.rs :silent! execute '!rustfmt %' | e!]]
-
-
------------------------------------------------------------
--- NVIM LSP
------------------------------------------------------------
--- opt.cot = {'menuone','noinsert'}
--- g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
--- g.completion_enable_auto_popup = 1
