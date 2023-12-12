@@ -3,19 +3,19 @@ return {
     branch = 'v2.x',
     dependencies = {
         -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
+        { 'neovim/nvim-lspconfig' }, -- Required
+        {                            -- Optional
             'williamboman/mason.nvim',
             build = function()
                 pcall(cmd, 'MasonUpdate')
             end,
         },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
         -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+        { 'hrsh7th/nvim-cmp' },     -- Required
+        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+        { 'L3MON4D3/LuaSnip' },     -- Required
     },
     config = function()
         local lsp = require('lsp-zero')
@@ -32,7 +32,7 @@ return {
         })
 
         local cmp = require('cmp')
-        local cmp_select = {behavior = cmp.SelectBehavior.Select}
+        local cmp_select = { behavior = cmp.SelectBehavior.Select }
         local cmp_mappings = lsp.defaults.cmp_mappings({
             ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -60,8 +60,21 @@ return {
             }
         })
 
+        lsp.format_on_save(
+            {
+                format_opts = {
+                    async = false,
+                    timeout_ms = 1500,
+                },
+                servers = {
+                    ['lua_ls'] = { 'lua' },
+                    ['rust_analyzer'] = { 'rust' },
+                }
+            }
+        )
+
         lsp.on_attach(function(client, bufnr)
-            local opts = {buffer = bufnr, remap = false}
+            local opts = { buffer = bufnr, remap = false }
 
             if client.name == "eslint" then
                 cmd.LspStop('eslint')
@@ -85,7 +98,5 @@ return {
         vim.diagnostic.config({
             virtual_text = true,
         })
-
     end
 }
-

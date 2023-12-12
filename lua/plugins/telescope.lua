@@ -13,7 +13,7 @@ return {
 
 
         require('project_nvim').setup({
-            patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "Cargo.toml" },
+            patterns = { ".git", ".hg", "Makefile", "package.json"},
         })
 
         telescope.load_extension('projects')

@@ -23,12 +23,11 @@ opt.tw = 80                   -- text width
 -----------------------------------------------------------
 opt.showmatch = true          -- highlight matching parenthesis
 opt.splitright = true         -- vertical split to the right
-opt.splitbelow = true         -- orizontal split to the bottom
-opt.ignorecase = true         -- ignore case letters when search
+opt.splitbelow = true         -- orizontal split to the bottom opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.cursorline = true         -- highlight current line
 opt.scrolloff = 8             -- lines below last edited line
-opt.signcolumn = 'no'
+opt.signcolumn = 'yes'
 
 -- remove status line and vertical line
 opt.fillchars = 'vert: '      -- replace vertical chars with ' '
