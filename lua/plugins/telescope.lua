@@ -4,7 +4,7 @@ return {
         'nvim-lua/plenary.nvim',
         'ahmedkhalf/project.nvim',
     },
-    config = function ()
+    config = function()
         -- Using protected call
         local status_ok, telescope = pcall(require, "telescope")
         if not status_ok then
@@ -13,7 +13,7 @@ return {
 
 
         require('project_nvim').setup({
-            patterns = { ".git", ".hg", "Makefile", "package.json"},
+            patterns = { ".git", ".hg", "package.json" },
         })
 
         telescope.load_extension('projects')

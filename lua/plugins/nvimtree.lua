@@ -12,15 +12,11 @@ return {
         end
 
         nvim_tree.setup {
-            sync_root_with_cwd = true,
-            respect_buf_cwd = true,
             git = {
                 enable = true,
-                show_root = true,
             },
             update_focused_file = {
                 enable = true,
-                update_root = true,
             },
             renderer = {
                 root_folder_modifier = ":t",
@@ -67,6 +63,6 @@ return {
         }
 
         -- Setting Keymaps
-        kmap("n", "<leader>.", ":NvimTreeToggle<CR>", { silent = true})
+        kmap("n", "<leader>.", ":NvimTreeToggle<CR>", { silent = true })
     end,
 }

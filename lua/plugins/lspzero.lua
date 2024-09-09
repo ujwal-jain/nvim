@@ -69,6 +69,10 @@ return {
                 servers = {
                     ['lua_ls'] = { 'lua' },
                     ['rust_analyzer'] = { 'rust' },
+                    ['clangd'] = { 'c' },
+                    ['pylsp'] = { 'python' },
+                    ['gopls'] = { 'go' },
+                    ['tsserver'] = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' }
                 }
             }
         )

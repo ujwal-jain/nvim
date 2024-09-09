@@ -7,7 +7,7 @@
   ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
   ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 Neovim init file
-Maintainer: Ujwal Jain 
+Maintainer: Ujwal Jain
 Website: https://github.com/ujwal-jain/nvim
 
 --]]
